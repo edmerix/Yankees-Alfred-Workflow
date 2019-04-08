@@ -95,7 +95,7 @@ foreach($data->game as $game){
 			$w->result($d++, "na", "Yankees: ".$game->home_win."-".$game->home_loss, $game->away_team_name.": ".$game->away_win."-".$game->away_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->home->tv, "Radio: ".$game->broadcast->home->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Preview") == 0 || strcasecmp($game->status->status, "Pre-Game") == 0){
-			$w->result($d++, "na", $game->game_media->media->title." at ".$game->home_time." ".$game->home_ampm, $game->venue, $icon, "no");
+			$w->result($d++, "na", $game->away_name_abbrev." @ ".$game->home_name_abbrev." at ".$game->home_time." ".$game->home_ampm, $game->venue, $icon, "no");
 			$w->result($d++, "na", "Yankees: ".$game->home_win."-".$game->home_loss, $game->away_team_name.": ".$game->away_win."-".$game->away_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->home->tv, "Radio: ".$game->broadcast->home->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Final") == 0 || strcasecmp($game->status->status, "Game Over") == 0){
@@ -165,7 +165,7 @@ foreach($data->game as $game){
 			$w->result($d++, "na", "Yankees: ".$game->away_win."-".$game->away_loss, $game->home_team_name.": ".$game->home_win."-".$game->home_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->away->tv, "Radio: ".$game->broadcast->away->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Preview") == 0 || strcasecmp($game->status->status, "Pre-Game") == 0){
-			$w->result($d++, "na", $game->game_media->media->title." at ".$game->away_time." ".$game->away_ampm, $game->venue, $icon, "no");
+			$w->result($d++, "na", $game->away_name_abbrev." @ ".$game->home_name_abbrev." at ".$game->away_time." ".$game->away_ampm, $game->venue, $icon, "no");
 			$w->result($d++, "na", "Yankees: ".$game->away_win."-".$game->away_loss, $game->home_team_name.": ".$game->home_win."-".$game->home_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->away->tv, "Radio: ".$game->broadcast->away->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Final") == 0 || strcasecmp($game->status->status, "Game Over") == 0){
