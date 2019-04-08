@@ -13,3 +13,9 @@ If a game has already finish today it'll show the final result, including R|H|E,
 
 ### Example response after a game finishes
 ![Screenshot of workflow after a game](screenshots/final.png?raw=true "A screenshot of workflow after a game")
+
+## Misc
+
+Keyword is set to "yankees" by default. It'd be easy to alter this to use a different team <sub><sup>But why...?</sup></sub>
+
+It also shows who's pitching (_+stats_), who's batting (_+stats_), current balls/strikes, if anyone's (and who's) on base, current win-lose record for both teams, and where the game is being broadcast on TV and radio.
