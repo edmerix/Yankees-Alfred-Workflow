@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.edmerix.yankees.alfredworkflow</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>edmerix</string>
+	<key>description</key>
+	<string>Display current info about New York Yankees</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Yankees Scores</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>yankees</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetching data...</string>
+				<key>script</key>
+				<string>php -f yankees.php</string>
+				<key>subtext</key>
+				<string>Current Yankees info</string>
+				<key>title</key>
+				<string>Yankees score</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://github.com/edmerix</string>
+</dict>
+</plist>
