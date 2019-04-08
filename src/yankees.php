@@ -7,10 +7,17 @@ $w = new Workflows();
 $icon = "icon.png";
 
 $hour = date("H");
-$day = date("d");
-$month = date("m");
-$year = date("Y");
+if($hour < 3){ // if it's before 3 a.m. we're probably asking for yesterday's game, not the game coming up
+	$day = date("d",strtotime('-1 days'));
+	$month = date("m",strtotime('-1 days'));
+	$year = date("Y",strtotime('-1 days'));
+}else{
+	$day = date("d");
+	$month = date("m");
+	$year = date("Y");
+}
 
+/* Obtuse method of the above:
 if($hour < 3){ // if it's before 3 a.m. we're probably asking for yesterday's game, not the game coming up
     $day = $day - 1;
     if($day < 1){ // if by going back a day we've gone back a month too, correct:
@@ -18,7 +25,7 @@ if($hour < 3){ // if it's before 3 a.m. we're probably asking for yesterday's ga
         $day = $day + cal_days_in_month(CAL_GREGORIAN, $month, $year);
     }
 }
-
+*/
 $url = "http://gd2.mlb.com/components/game/mlb/year_".$year."/month_".$month."/day_".sprintf('%02d',$day)."/master_scoreboard.json?now=".date("dmyhms");
 
 $data = $w->request($url);
