@@ -14,6 +14,9 @@ If a game has already finish today it'll show the final result, including R|H|E,
 ### Example response after a game finishes
 ![Screenshot of workflow after a game](screenshots/final.png?raw=true "A screenshot of workflow after a game")
 
+### Example response with a game later this day
+![Screenshot of workflow before a game](screenshots/upcoming.png?raw=true "A screenshot of workflow before a game")
+
 ## Misc
 
 Keyword is set to "yankees" by default. It'd be easy to alter this to use a different team <sub><sup>But why...?</sup></sub>
