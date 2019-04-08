@@ -1,4 +1,4 @@
-#Yankees Alfred Workflow
+# Yankees Alfred Workflow
 
 Workflow for Alfred V2 that uses the MLB API to check info about a current Yankees game (i.e. quickly check the score, who's on base, who's pitching etc.)
 
@@ -8,6 +8,8 @@ If a game has already finish today it'll show the final result, including R|H|E,
 
 ## Screenshots
 
+### Example response during a game
 ![Screenshot of workflow during game](screenshots/active_game.png?raw=true "A screenshot of workflow during game")
 
+### Example response after a game finishes
 ![Screenshot of workflow after a game](screenshots/final.png?raw=true "A screenshot of workflow after a game")
