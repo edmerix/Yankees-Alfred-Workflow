@@ -22,3 +22,5 @@ If a game has already finish today it'll show the final result, including R|H|E,
 ## Misc
 
 It also shows who's pitching (_+stats_), who's batting (_+stats_), current balls/strikes, if anyone's (and who's) on base, current win-lose record for both teams, and where the game is being broadcast on TV and radio.
+
+Uses [David Ferguson](http://dferg.us)'s [Workflow PHP class](https://github.com/jdfwarrior/Workflows).
