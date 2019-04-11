@@ -2,6 +2,8 @@
 
 Workflow for Alfred V2 that uses the MLB API to check info about a current Yankees game (i.e. quickly check the score, who's on base, who's pitching etc.)
 
+_(For a team-agnostic version of this check my overall [MLB version](https://github.com/edmerix/MLB-Alfred-Workflow)) <sub><sup>But why...?</sup></sub>_
+
 Shows runners on base at a glance using icons in the Alfred response, see [screenshots](#screenshots) below.
 
 If a game has already finish today it'll show the final result, including R|H|E, if a game is scheduled for today it'll give upcoming info.
@@ -18,7 +20,5 @@ If a game has already finish today it'll show the final result, including R|H|E,
 ![Screenshot of workflow before a game](screenshots/upcoming.png?raw=true "A screenshot of workflow before a game")
 
 ## Misc
-
-Keyword is set to "yankees" by default. It'd be easy to alter this to use a different team <sub><sup>But why...?</sup></sub>
 
 It also shows who's pitching (_+stats_), who's batting (_+stats_), current balls/strikes, if anyone's (and who's) on base, current win-lose record for both teams, and where the game is being broadcast on TV and radio.
