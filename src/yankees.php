@@ -50,7 +50,7 @@ if($homeaway == "" || $tot_n < 0){
 		$game = $data->game[$n[$gn]];
 		if(strcasecmp($game->status->status, "In Progress") == 0){
 			//echo $game->away_team_name.":". $game->linescore->r->away." | ".$game->home_team_name.": ".$game->linescore->r->home;
-			$info = $game->away_team_name.": ". $game->linescore->r->away." | ".$game->home_team_name.": ".$game->linescore->r->home;
+			$info = $game->away_team_name." ". $game->linescore->r->away." - ".$game->linescore->r->home." ".$game->home_team_name;
 			$info .= " (".$game->status->inning_state." of the ".$game->status->inning;
 			switch($game->status->inning){
 				case 1:
