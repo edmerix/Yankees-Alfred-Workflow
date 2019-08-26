@@ -106,7 +106,14 @@ if($homeaway == "" || $tot_n < 0){
 			$w->result($d++, "na", "$game->home_team_name: ".$game->home_win."-".$game->home_loss, $game->away_team_name.": ".$game->away_win."-".$game->away_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->$homeaway->tv, "Radio: ".$game->broadcast->$homeaway->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Preview") == 0 || strcasecmp($game->status->status, "Pre-Game") == 0){
-			$w->result($d++, "na", $game->away_name_abbrev." @ ".$game->home_name_abbrev." at ".$game->home_time." ".$game->home_ampm, $game->venue, $icon, "no");
+			if($homeaway == "home"){
+				$gametime = $game->home_time;
+				$ampm = $game->home_ampm;
+			}else{
+				$gametime = $game->away_time;
+				$ampm = $game->away_ampm;
+			}
+			$w->result($d++, "na", $game->away_name_abbrev." @ ".$game->home_name_abbrev." at ".$gametime." ".$ampm." (ET)", $game->venue, $icon, "no");
 			$w->result($d++, "na", "$game->home_team_name: ".$game->home_win."-".$game->home_loss, $game->away_team_name.": ".$game->away_win."-".$game->away_loss, $icon, "no");
 			$w->result($d++, "na", "TV: ".$game->broadcast->$homeaway->tv, "Radio: ".$game->broadcast->$homeaway->radio, $icon, "no");
 		}elseif(strcasecmp($game->status->status, "Final") == 0 || strcasecmp($game->status->status, "Game Over") == 0){
