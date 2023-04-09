@@ -96,6 +96,7 @@ for($n = 0; $n < count($allGames); $n++){
 	
 	switch($status){
 		case "F":  //Final
+		case "O":  //Game Over
 			if($games[$allGames[$n]]->teams->$homeaway->isWinner){
 				$winlose = ": win!";
 			}else{
@@ -153,7 +154,7 @@ for($n = 0; $n < count($allGames); $n++){
 			$homeName = $games[$allGames[$n]]->teams->home->team->name;
 			
 			$topLine = "$awayAbbr {$runs['away']} – {$runs['home']} $homeAbbr ($inningState of the $inning)";
-			$subLine = "At bat: $battingOrder. $atBat ($inHole in the hole; $onDeck on deck)";
+			$subLine = "At bat: $battingOrder. $atBat ($onDeck on deck; $inHole in the hole)";
 			$w->result($d++, "na", $topLine, $subLine, $icon, "no");
 			
 			$topLine = "R: {$runs['away']} - {$runs['home']} | H: {$hits['away']} - {$hits['home']} | E: {$errors['away']} - {$errors['home']}";
