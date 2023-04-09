@@ -66,16 +66,26 @@ for($n = 0; $n < count($allGames); $n++){
 	$homeAbbr = $homeTeamData->teams[0]->teamName;
 	$awayAbbr = $awayTeamData->teams[0]->teamName;
 	
-	
 	$winPct = $games[$allGames[$n]]->teams->$homeaway->leagueRecord->pct;
 	$winRecord = $games[$allGames[$n]]->teams->$homeaway->leagueRecord->wins;
 	$lossRecord = $games[$allGames[$n]]->teams->$homeaway->leagueRecord->losses;
 
 	$swap = $homeawayInv[$homeaway];
-	$opponentName = $games[$allGames[$n]]->teams->$swap->team->name;
+	$opponentFullName = $games[$allGames[$n]]->teams->$swap->team->name;
 	$opponentWinPct = $games[$allGames[$n]]->teams->$swap->leagueRecord->pct;
 	$opponentWinRecord = $games[$allGames[$n]]->teams->$swap->leagueRecord->wins;
 	$opponentLossRecord = $games[$allGames[$n]]->teams->$swap->leagueRecord->losses;
+	
+	switch($homeaway){
+		case "away":
+			$opponentName = $homeAbbr;
+			break;
+		case "home":
+			$opponentName = $awayAbbr;
+			break;
+		default:
+			$opponentName = $opponentFullName;
+	}
 	
 	$location = $games[$allGames[$n]]->venue->name;
 	$gameInSeries = $games[$allGames[$n]]->seriesGameNumber;
@@ -133,6 +143,7 @@ for($n = 0; $n < count($allGames); $n++){
 			$outs = $linescore->outs;
 			
 			$runners = $gameData->liveData->plays->currentPlay->runners;
+			$matchUp = $gameData->liveData->plays->currentPlay->matchup;
 			
 			$pitcher = $linescore->defense->pitcher->fullName;
 			$atBat = $linescore->offense->batter->fullName;
@@ -168,44 +179,29 @@ for($n = 0; $n < count($allGames); $n++){
 			// runners_on_base
 			$bases = array("-","-","-");
 			$base_icon = "000";
-			for($r = 0; $r < count($runners); $r++){
-				if(!$runners[$r]->movement->isOut){
-					$where = $runners[$r]->movement->end;
-					switch($where){
-						case "1B":
-						$bases[0] = "1st: {$runners[$r]->details->runner->fullName}";
-						$base_icon[0] = "1";
-						break;
-						case "2B":
-						$bases[1] = "2nd: {$runners[$r]->details->runner->fullName}";
-						$base_icon[1] = "1";
-						break;
-						case "3B":
-						$bases[2] = "3rd: {$runners[$r]->details->runner->fullName}";
-						$base_icon[2] = "1";
-						break;
-					}
-				}				
+			$b = 0;
+			if(property_exists($matchUp,'postOnFirst')){
+				$bases[0] = "1st: {$matchUp->postOnFirst->fullName}";
+				$base_icon[0] = "1";
+				$b++;
 			}
-			
-			$b = count($runners);
+			if(property_exists($matchUp,'postOnSecond')){
+				$bases[1] = "2nd: {$matchUp->postOnSecond->fullName}";
+				$base_icon[1] = "1";
+				$b++;
+			}
+			if(property_exists($matchUp,'postOnThird')){
+				$bases[2] = "3rd: {$matchUp->postOnThird->fullName}";
+				$base_icon[2] = "1";
+				$b++;
+			}
 			$base_sub = $b." runner";
 			if($b != 1) $base_sub .= "s";
 			$base_sub .= " on base";
 			if($base_sub != 1) $base_sub .= "s";
 			$w->result($d++, "na", implode(" | ",$bases), $base_sub, $base_icon.".png", "no");
 			
-			switch($homeaway){
-				case "away":
-					$opponentAbbr = $homeAbbr;
-					break;
-				case "home":
-					$opponentAbbr = $awayAbbr;
-					break;
-				default:
-					$opponentAbbr = $opponentName;
-			}
-			$topLine = "Yankees: $winPct ($winRecord - $lossRecord) | $opponentAbbr: $opponentWinPct ($opponentWinRecord - $opponentLossRecord)";
+			$topLine = "Yankees: $winPct ($winRecord - $lossRecord) | $opponentName: $opponentWinPct ($opponentWinRecord - $opponentLossRecord)";
 			$subLine = "Game $gameInSeries in $totalInSeries game series";
 			$w->result($d++, "na", $topLine, $subLine, $icon, "no");
 			
