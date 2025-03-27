@@ -1,8 +1,10 @@
 # Yankees Alfred Workflow
 
-Workflow for Alfred V2 that uses the MLB API to check info about a current Yankees game (i.e. quickly check the score, who's on base, who's pitching etc.)
+Workflow for Alfred that uses the MLB API to check info about a current Yankees game (i.e. quickly check the score, who's on base, who's pitching etc.)
 
 _(For a team-agnostic version of this check my overall [MLB version](https://github.com/edmerix/MLB-Alfred-Workflow)) <sub><sup>But why...?</sup></sub>_
+
+Requires PHP installed, by default via homebrew and in `/opt/homebrew/bin/php.` This can be changed in the script filter after installation.
 
 Shows runners on base at a glance using icons in the Alfred response, see [screenshots](#screenshots) below.
 
