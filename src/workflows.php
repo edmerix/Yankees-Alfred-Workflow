@@ -4,7 +4,7 @@
 * Description: 	This PHP class object provides several useful functions for retrieving, parsing,
 * 				and formatting data to be used with Alfred 2 Workflows.
 * Author: 		David Ferguson (@jdfwarrior)
-* Revised: 		6/6/2013
+* Revised: 		6/6/2013 (minor revision 3/27/2025 to allow usage with Alfred 5)
 * Version:		0.3.3
 */
 class Workflows {
@@ -38,8 +38,8 @@ class Workflows {
 			$this->bundle = $bundleid;
 		endif;
 
-		$this->cache = $this->home. "/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/".$this->bundle;
-		$this->data  = $this->home. "/Library/Application Support/Alfred 2/Workflow Data/".$this->bundle;
+		$this->cache = $this->home. "/Library/Caches/com.runningwithcrayons.Alfred/Workflow Data/".$this->bundle;
+		$this->data  = $this->home. "/Library/Application Support/Alfred/Workflow Data/".$this->bundle;
 
 		if ( !file_exists( $this->cache ) ):
 			exec("mkdir '".$this->cache."'");
