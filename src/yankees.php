@@ -36,8 +36,9 @@ for($g = 0; $g < count($games); $g++){
 }
 
 $allGames = $awayGames + $homeGames;
-if(count($allGames) < 0){
+if(count($allGames) < 1){
 	$w->result(0, 'na', "No Yankees game found for today", "", $icon, "no");
+	echo $w->toxml();
 	return;
 }
 
